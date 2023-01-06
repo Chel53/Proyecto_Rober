@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".splashScreen">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.25">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/labelWelcomeMessage1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JAR PROGRAMING FOR TO MORROW."
+                android:textAlignment="center"
+                android:textSize="27sp"
+                android:textColor="#03A9F4"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-medium"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.55">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/pantallacarga"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.2"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/labelSlogan1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JE JE JE ..."
+            android:textColor="#000000"
+            android:textSize="19sp"
+            android:textStyle="bold|italic"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif-light"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degradado_fragmentos"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Puerta">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.16"
+        android:background="@drawable/smoked_circuit_board"
+        tools:ignore="Suspicious0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:fontFamily="@font/fff_tusj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/titleControlPuerta"
+                android:text="Circuito 1: Huella + Cerradura"
+                android:layout_margin="3dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageCircuitHuella"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/circuito_2_huella"
+                android:layout_margin="3dp"
+                app:shapeAppearanceOverlay="@style/circular_image"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.14"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/labelEstatusCerradura"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:textColor="#AA8416"
+                    android:fontFamily="@font/kelly_slab_regular"
+                    android:text="Estatus cerradura: "
+                    android:textAlignment="center"
+                    android:textSize="22sp"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:gravity="center">
+
+                <!--ImageButton-->
+                <ImageButton
+                    android:id="@+id/imageBtnEstatusCerradura"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@null"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:gravity="center_vertical">
+
+                <!--
+       <ImageButton
+           android:id="@+id/btnReloadPuerta"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
+           android:layout_below="@+id/switch1"
+           android:layout_marginTop="428dp"
+           android:layout_marginLeft="50dp"
+           android:background="@drawable/gradiente_claro_botones"
+           app:srcCompat="@drawable/reload_icon" />-->
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.14"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Switch
+                android:id="@+id/switchCerradura"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="validarswitch2"
+                android:text="Abrir puerta"
+                android:textSize="22sp"
+                android:textColor="#AA8416"
+                android:textStyle="bold"
+                android:fontFamily="@font/kelly_slab_regular"
+                tools:ignore="OnClick" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.14"
+        android:gravity="center">
+
+        <android.widget.Button
+            android:id="@+id/btnAgregarHuella"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Agregar huella"
+            android:textSize="19sp"
+            android:drawableStart="@drawable/finger_print_up"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_btn_rectangular"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.12"
+        android:gravity="center">
+
+        <android.widget.Button
+            android:id="@+id/btnBackToHomeP"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn_home"
+            android:drawableStart="@drawable/home_page_icon"
+            android:text=" Home "
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+

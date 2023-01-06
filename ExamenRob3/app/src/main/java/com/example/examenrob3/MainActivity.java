@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Redirigir a la Pantalla (Acticity) :: Circuito 1: Huella
-                Intent i = new Intent(MainActivity.this, //ControlPuerta.class);
+                Intent i = new Intent(MainActivity.this, Puerta.class);
                 startActivity(i);
             }
         }); //--fin: btnMenuOptC1Huella.clickListener()
@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO: Redirigir a la Pantalla (Acticity) :: Circuito 2: Temperatura Corporal
                 // -->> Enviar a pantalla de C2TemperaturaActivity
-                Intent intent = new Intent(MainActivity.this, //C2TemperaturaActivity.class);
-                startActivity( intent );
-                finish();
+                //Intent intent = new Intent(MainActivity.this, //C2TemperaturaActivity.class);
+                //startActivity( intent );
+               // finish();
             }
         }); //--fin: btnMenuOptC2Temperatura.clickListener()
 
@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Redirigir a la Pantalla (Acticity) :: Circuito 3: Luces de Oficina
-                Intent i = new Intent(MainActivity.this, //ControlLuz.class);
-                startActivity(i);
+                //Intent i = new Intent(MainActivity.this, //ControlLuz.class);
+                //startActivity(i);
             }
         }); //--fin: btnMenuOptC3LucesOff.clickListener()
     }
