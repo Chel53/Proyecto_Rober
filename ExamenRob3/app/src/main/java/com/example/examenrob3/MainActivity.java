@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO: Redirigir a la Pantalla (Acticity) :: Circuito 2: Temperatura Corporal
                 // -->> Enviar a pantalla de C2TemperaturaActivity
-                //Intent intent = new Intent(MainActivity.this, //C2TemperaturaActivity.class);
-                //startActivity( intent );
-               // finish();
+                Intent intent = new Intent(MainActivity.this, Lumenes.class);
+                startActivity( intent );
+               finish();
             }
         }); //--fin: btnMenuOptC2Temperatura.clickListener()
 

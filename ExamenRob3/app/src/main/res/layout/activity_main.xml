@@ -89,7 +89,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:text="Temperatura corporal"
+                android:text="Lumenes"
                 android:fontFamily="@font/nueva_anton"
                 android:textColor="#0C0C0C"
                 android:textSize="26sp"
