@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Redirigir a la Pantalla (Acticity) :: Circuito 3: Luces de Oficina
-                //Intent i = new Intent(MainActivity.this, //ControlLuz.class);
-                //startActivity(i);
+                Intent i = new Intent(MainActivity.this, Luz.class);
+                startActivity(i);
             }
         }); //--fin: btnMenuOptC3LucesOff.clickListener()
     }
