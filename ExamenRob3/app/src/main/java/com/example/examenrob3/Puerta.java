@@ -28,7 +28,7 @@ import java.util.TimerTask;
 
 public class Puerta extends AppCompatActivity {
 
-    // Consumo CONTINUO de WS consultarEstatusPuerta [000webhost-eec]
+    // Consumo CONTINUO de WS consultarEstatusPuerta [000webhost-robert]
     private class ConsultarEstatusPuertaTask extends TimerTask {
 
         @Override
@@ -38,7 +38,7 @@ public class Puerta extends AppCompatActivity {
                 public void run() {
                     //TODO: Implementar llamada a WS consultarTempCorp() y actualizar la Temperatura en el
                     // textView [tvValorTemperaturaCorp]
-                    // Toast.makeText( getApplicationContext(), "Consultando temperatura V2...", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText( getApplicationContext(), "Consultando estatus cerradura...", Toast.LENGTH_SHORT).show();
                     imageBtnEstatusCerradura = (ImageButton) findViewById( R.id.imageBtnEstatusCerradura );
 
                     /*
@@ -51,7 +51,7 @@ public class Puerta extends AppCompatActivity {
                     // String urlConsultaTempCorp = "http://localhost/ws_punto_venta_android/random_temperatures.php";
                     // http://192.168.0.108/ws_punto_venta_android/random_temperatures.php
 
-                    consultarEstatusCerradura( urlConsultarEstatusCerradura );
+                    consultarEstatusCerradura( urlConsultarEstCerrRobert );
 
                     // getSupportFragmentManager().findFragmentById()
                 } //--fin: run()
@@ -65,7 +65,7 @@ public class Puerta extends AppCompatActivity {
     ImageButton imageBtnEstatusCerradura;
     Button btnBackToHomeP;
     // ImageButton btnReloadPuerta;
-    String urlConsultarEstatusCerradura = "https://conceptos-web-2010067-eec.000webhostapp.com/consultar_estatus_cerradura.php";
+    String urlConsultarEstCerrRobert = "https://pruebasoooo.000webhostapp.com/consultar_estatus_cerradura.php";
 
     // Button [agregarHuella]... --control de Arduino
     Button btnAgregarHuella;
@@ -117,7 +117,7 @@ public class Puerta extends AppCompatActivity {
                     // INTENCIÓN de CERRAR la Puerta...
                     // switchCerradura.setText( "Cerrar la puerta" );
                     Toast.makeText(getApplicationContext(), "Cerrando la puerta...", Toast.LENGTH_SHORT).show();
-                    controlCerrarPuerta();
+                    controlCerrarPuerta( 5 );
                     // DESPUÉS DE haber Cerrado la Puerta... [Toogle :: ${statusControlPuerta = 0} :: 0 :: 'Cerrada']
 
                     statusControlPuerta = 0;
@@ -131,7 +131,7 @@ public class Puerta extends AppCompatActivity {
                     // INTENCIÓN de ABRIR la Puerta...
                     // switchCerradura.setText( "ABRIR la puerta" );
                     Toast.makeText( getApplicationContext(), "Abriendo la puerta...", Toast.LENGTH_SHORT).show();
-                    controlAbrirPuerta();
+                    controlAbrirPuerta( 5 );
                     // DESPUÉS de haber Abierto la Puerta... [Toogle :: ${statusControlPuerta = 1} ::  1 :: 'Abierta']
 
                     statusControlPuerta = 1;
@@ -157,10 +157,10 @@ public class Puerta extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // TODO: Implementar consumo de WS para setear campo [RECEIVED_BOOL5] = 1
-                String urlAgregarHuellaEnable = "https://conceptos-web-2010067-eec.000webhostapp.com/control_leds.php?num_led=5" + "&valor=1";
+                String urlAgregarHuellaEnable = "https://pruebasoooo.000webhostapp.com/servicio_agregar_huella.php?str_comando=add_huella";
                 actualizarLEDEnBD( urlAgregarHuellaEnable );
                 // Luego DELAY de 600 ms para setear de nueva cuenta [RECEIVED_BOOL5] = 0
-                String urlAgregarHuellaDisable = "https://conceptos-web-2010067-eec.000webhostapp.com/control_leds.php?num_led=5" + "&valor=0";
+                String urlAgregarHuellaDisable = "https://pruebasoooo.000webhostapp.com/servicio_agregar_huella.php?str_comando=no_add_huella";
 
                 final Handler handler = new Handler();
 
@@ -220,16 +220,16 @@ public class Puerta extends AppCompatActivity {
     */
 
 
-    private void controlAbrirPuerta(){
+    private void controlAbrirPuerta(int numLed){
         //--INI: abrirPuerta
-        String url = "https://conceptos-web-2010067-eec.000webhostapp.com/control_leds.php?num_led=1" + "&valor=0";
+        String url = "https://pruebasoooo.000webhostapp.com/control_leds.php?num_led=" + numLed + "&valor=0";
         actualizarLEDEnBD( url );
         //++FIN: abrirPuerta
     } //--fin: controlAbrirPuerta()
 
-    private void controlCerrarPuerta(){
+    private void controlCerrarPuerta(int numLed){
         //--INI: cerrarPuerta
-        String url = "https://conceptos-web-2010067-eec.000webhostapp.com/control_leds.php?num_led=1" + "&valor=1";
+        String url = "https://pruebasoooo.000webhostapp.com/control_leds.php?num_led=" + numLed + "&valor=1";
         actualizarLEDEnBD( url );
         //++FIN: cerrarPuerta
     } //--fin: controlCerrarPuerta()
@@ -321,7 +321,7 @@ public class Puerta extends AppCompatActivity {
 
                             // tVValorTimestamp.setText( strTimestamp );
                         }else{
-                            Toast.makeText( getApplicationContext(), "ERROR al recurepar Temp. Corp. del WS", Toast.LENGTH_LONG).show();
+                            Toast.makeText( getApplicationContext(), "ERROR al recurepar el Estatus de la Puerta del WS", Toast.LENGTH_LONG).show();
                             // labelMsgLogin.setText( "Usuario y contraseña NO coinciden." );
                         } //-- fin : IF accessCode == 100 (OK - Dejar pasar)
 
