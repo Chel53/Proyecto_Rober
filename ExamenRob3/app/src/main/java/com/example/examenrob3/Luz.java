@@ -62,7 +62,7 @@ public class Luz extends AppCompatActivity {
 
     } //--fin :: Private Class :: ConsultarTemperaturaTask
 
-    Switch switchLucesOficina;
+    Switch switchLucesSalon;
     Integer  statusControlLuz;
     ImageView imgBtnEstatusLuz,imgBtnEstatusLuz1,imgBtnEstatusLuz2;
     Button btnBackToHomeL;
@@ -86,7 +86,7 @@ public class Luz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_luz);
-        switchLucesOficina = (Switch) findViewById(R.id.switchLucesOficina);
+        switchLucesSalon = (Switch) findViewById(R.id.switchLucesSalon);
         imgBtnEstatusLuz = (ImageView) findViewById(R.id.imgBtnEstatusLuz);
         imgBtnEstatusLuz1 = (ImageView) findViewById(R.id.imgBtnEstatusLuz1);
         imgBtnEstatusLuz2 = (ImageView) findViewById(R.id.imgBtnEstatusLuz2);
@@ -101,19 +101,24 @@ public class Luz extends AppCompatActivity {
             statusControlLuz == 0 :: Apagado
             -- INIT :: Apagado
         */
+
         statusControlLuz = 0; // Apagadas
-        //switchLucesOficina.setChecked( false ); // Apagadas
-       //switchLucesOficina.setText( "Encender" ); // Apagadas
+        switchLucesSalon.setChecked( false ); // Apagadas
+        switchLucesSalon.setText( "Encender" ); // Apagadas
         //imgBtnEstatusLuz.setImageResource(R.drawable.lamparapag); // Apagadas
+        imgBtnEstatusLuz.setImageResource(R.drawable.lamparapag); // Apagadas
+        imgBtnEstatusLuz1.setImageResource(R.drawable.lamparapag); // Apagadas
+        imgBtnEstatusLuz2.setImageResource(R.drawable.lamparapag); // Apagadas
 
 
 
         btnBackToHomeL = (Button) findViewById( R.id.btnBackToHomeL );
 
-        validarstatusLuz();
+        // validarstatusLuz();
 
 
-        switchLucesOficina.setOnClickListener(new View.OnClickListener() {
+
+        switchLucesSalon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // actualizar("http://192.168.114.225/serviceexamen/regprodfact.php");
@@ -123,22 +128,36 @@ public class Luz extends AppCompatActivity {
                     // se desea APAGAR las luces...
                     // INTENCIÓN de APAGAR las luces
                     Toast.makeText( getApplicationContext(), "Apagando las luces...", Toast.LENGTH_SHORT).show();
-                    //controlApagarLuces();
+                    controlApagarLuces(1);
+                    controlApagarLuces(2);
+                    controlApagarLuces(3);
                     // DESPUÉS de haber APAGADO las LUCES... [Toogle :: ${statusControlLuz = 0} :: 0 :: Apagado]
-                   //statusControlLuz = 0; // Apagadas
-                    //switchLucesOficina.setChecked( false ); // Apagadas
-                   // switchLucesOficina.setText( "ENCENDER" );
-                    validarstatusLuz();
+                    statusControlLuz = 0; // Apagadas
+
+                    imgBtnEstatusLuz.setImageResource(R.drawable.lamparapag); // Apagadas
+                    imgBtnEstatusLuz1.setImageResource(R.drawable.lamparapag); // Apagadas
+                    imgBtnEstatusLuz2.setImageResource(R.drawable.lamparapag); // Apagadas
+
+                    switchLucesSalon.setChecked( false ); // Apagadas
+                    switchLucesSalon.setText( "ENCENDER" );
+
                 } else {
                     // Luces APAGADAS Actualmente [statusControlLuz == 0]
                     // se desea ENCENDER las luces...
                     // INTENCIÓN de ENCENDER las luces
                     Toast.makeText( getApplicationContext(), "Encendiendo las luces...", Toast.LENGTH_SHORT).show();
-                    //controlEncenderLuces();
+                    controlEncenderLuces(1);
+                    controlEncenderLuces(2);
+                    controlEncenderLuces(3);
                     // DESPUÉS de haber ENCENDIDO las LUCES... [Toogle :: ${statusControlLuz = 1} :: 1 ::  ENCENDIDO]
-                    //statusControlLuz = 1; // ENCENDIDO
-                    ////switchLucesOficina.setText( "Apagar" );
-                    validarstatusLuz();
+                    statusControlLuz = 1; // ENCENDIDO
+
+                    imgBtnEstatusLuz.setImageResource(R.drawable.lamparapren); // ENCENDIDAS
+                    imgBtnEstatusLuz1.setImageResource(R.drawable.lamparapren); // ENCENDIDAS
+                    imgBtnEstatusLuz2.setImageResource(R.drawable.lamparapren); // ENCENDIDAS
+
+                    switchLucesSalon.setText( "Apagar" );
+
                 }
 
             }
@@ -256,12 +275,12 @@ public class Luz extends AppCompatActivity {
     //++FIN: consultarLumenesBD( url: String )
 
     private void controlApagarLuces(int numfoco){
-        String url = "https://conceptos-web-2010067-eec.000webhostapp.com/control_leds.php?num_led="+ numfoco+ "&valor=0";
+        String url = "https://pruebasoooo.000webhostapp.com/control_leds.php?num_led="+ numfoco+ "&valor=0";
         actualizarLEDEnBD( url );
     } //--fin: controlApagarLuces()
 
     private void controlEncenderLuces(int numfoco){
-        String url = "https://conceptos-web-2010067-eec.000webhostapp.com/control_leds.php?num_led="+ numfoco+ "&valor=1";
+        String url = "https://pruebasoooo.000webhostapp.com/control_leds.php?num_led="+ numfoco+ "&valor=1";
         actualizarLEDEnBD( url );
     } //--fin: controlEncenderLuces()
 
@@ -290,12 +309,17 @@ public class Luz extends AppCompatActivity {
     }
 
 
+    /*
+    statusControlLuz == 1 :: Encendida
+    statusControlLuz == 0 :: APAGADA
+    */
 
+    /*
     public void validarstatusLuz(){
         if (statusControlLuz==1){
             statusControlLuz = 0;
-            switchLucesOficina.setChecked(true);
-            switchLucesOficina.setText("Apagar la luz");
+            switchLucesSalon.setChecked(true);
+            switchLucesSalon.setText("Apagar la luz");
             imgBtnEstatusLuz.setImageResource(R.drawable.lamparapren);
             imgBtnEstatusLuz1.setImageResource(R.drawable.lamparapren);
             imgBtnEstatusLuz2.setImageResource(R.drawable.lamparapren);
@@ -303,8 +327,8 @@ public class Luz extends AppCompatActivity {
 
         }else{
             statusControlLuz = 1;
-            switchLucesOficina.setChecked(false);
-            switchLucesOficina.setText("Encender la luz");
+            switchLucesSalon.setChecked(false);
+            switchLucesSalon.setText("Encender la luz");
             imgBtnEstatusLuz.setImageResource(R.drawable.lamparapag);
             imgBtnEstatusLuz1.setImageResource(R.drawable.lamparapag);
             imgBtnEstatusLuz2.setImageResource(R.drawable.lamparapag);
@@ -313,6 +337,7 @@ public class Luz extends AppCompatActivity {
 
         }
     } //-- fin: validarstatusLuz()
+    */
 
 
 
