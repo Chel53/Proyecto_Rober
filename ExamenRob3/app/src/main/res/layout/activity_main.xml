@@ -89,8 +89,8 @@
                 android:id="@+id/btnMenuOptC2Temperatura"
                 android:layout_width="200dp"
                 android:layout_height="120dp"
-                android:background="@drawable/lumenesdcs"
-                android:text="Lumenes"
+                android:background="@drawable/ventiladora"
+                android:text="Ventilador"
                 android:layout_gravity="right"
                 />
 
@@ -100,7 +100,7 @@
                 android:fontFamily="@font/nueva_anton"
                 android:gravity="center"
                 android:background="@color/white"
-                android:text="Consultar Lumenes"
+                android:text="Control de ventilador"
                 android:textSize="20dp"
                 android:layout_gravity="right"/>
 
